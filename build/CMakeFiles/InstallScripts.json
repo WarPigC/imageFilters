@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/archani/Projects/imageFilters/build/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

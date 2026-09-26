@@ -1,0 +1,1 @@
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/imgfilter.dir/link.d CMakeFiles/imgfilter.dir/src/driver.cpp.o CMakeFiles/imgfilter.dir/src/writer.cpp.o CMakeFiles/imgfilter.dir/src/filters/grayscale.cpp.o -o /home/archani/Projects/imageFilters/bin/imgfilter
