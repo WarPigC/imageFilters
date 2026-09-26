@@ -1,3 +1,0 @@
-/home/archani/Projects/imageFilters/build/CMakeFiles/imgfilter.dir
-/home/archani/Projects/imageFilters/build/CMakeFiles/edit_cache.dir
-/home/archani/Projects/imageFilters/build/CMakeFiles/rebuild_cache.dir
