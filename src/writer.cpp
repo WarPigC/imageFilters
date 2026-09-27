@@ -1,8 +1,7 @@
 #include "../include/flags.h"
+#include "../include/image.h"
 
 
-int write() {
+Filters getFilter(std::string flag);
 
-	return 0;
-}
-
+void write(const std::string FILEPATH, std::string flag);

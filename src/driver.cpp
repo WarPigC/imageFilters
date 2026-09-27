@@ -28,7 +28,7 @@ int main(int argc, char** argv){
 	}
 
 
-	// write()
+	// write(FILEPATH, flag);
 
 
 	return 0;

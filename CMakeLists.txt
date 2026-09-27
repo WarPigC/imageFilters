@@ -13,6 +13,7 @@ file(GLOB FILTER_SOURCES ${CMAKE_SOURCE_DIR}/src/filters/*.cpp)
 set(SOURCES
     src/driver.cpp
     src/writer.cpp
+	src/image.cpp
     ${FILTER_SOURCES}
 )
 
