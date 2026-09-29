@@ -1,8 +1,8 @@
 #pragma once
 
+#include "image.h"
+#include <iostream>
 
-// Forward Declaration
-class Image;
 
 // Grayscale filter
 // Returns 0 for successful processing

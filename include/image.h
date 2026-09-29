@@ -30,6 +30,15 @@ public:
 	// Returns 0 on success.
 	int write();
 
+    // Gets width of the image
+    int getX() const;
+
+    // Gets height of the image
+    int getY() const;
+
+    // Gets channel count in the image
+    int getChannels() const;
+
 	// Frees image loaded.
 	~Image();
 };

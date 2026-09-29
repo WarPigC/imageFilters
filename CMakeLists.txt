@@ -4,6 +4,16 @@ project(ImageFilters CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+# params for compiler
+target_compile_options(imgfilter PRIVATE
+    -Wall
+    -Wextra
+    -Wconversion
+    -Wsign-conversion
+    -Wshadow
+    -Wpedantic
+)
+
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 
 # NOTE: filters/*.cpp are globbed at configure time

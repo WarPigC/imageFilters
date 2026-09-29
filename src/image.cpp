@@ -1,4 +1,5 @@
 #include <cassert>
+#include <stdexcept>
 #define STB_IMAGE_IMPLEMENTATION
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 
@@ -27,10 +28,8 @@ Image::Image(const std::string filepath)
 
 stbi_uc& Image::operator() (int x, int y, int channel){
 	if ( x < 0 || x >= X || y < 0 || y >= Y || channel < 0 || channel >= channels) {
-		std::cerr << "Pixel out of bounds at xyChannel: ( "
-			<< x << ", " << y << ", " << channel << ")"
-			<< std::endl;
-		abort();
+        throw std::out_of_range("Pixel access out of bounds at xyChannel: ( "
+			+ std::to_string(x) + ", " + std::to_string(y) + ", " + std::to_string(channel) + ")");
 	}
 
 	return image[(y * X * channels) + x * channels + channel]; // 1d array of bytes; rows + columns + channel offset
@@ -42,6 +41,18 @@ int Image::write(){
 	// 		Current implementation saves in-place
 
 	return !stbi_write_png(FILEPATH.c_str(), X, Y, channels, image, 0);
+}
+
+int Image::getX() const {
+    return X;
+}
+
+int Image::getY() const {
+    return Y;
+}
+
+int Image::getChannels() const {
+    return channels;
 }
 
 
