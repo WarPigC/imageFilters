@@ -41,7 +41,7 @@ int Image::write(){
 	//TODO: save files to assets regardless from where original file exists.
 	// 		Current implementation saves in-place
 
-	return stbi_write_png(FILEPATH.c_str(), X, Y, channels, image, 0);
+	return !stbi_write_png(FILEPATH.c_str(), X, Y, channels, image, 0);
 }
 
 

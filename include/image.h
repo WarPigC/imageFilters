@@ -27,7 +27,7 @@ public:
 	stbi_uc& operator() (int x, int y, int channel);
 
 	// Writes buffer to the file.
-	// Returns 0 on failure.
+	// Returns 0 on success.
 	int write();
 
 	// Frees image loaded.

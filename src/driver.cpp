@@ -1,6 +1,6 @@
-#include <iostream>
-#include <filesystem>
 #include "../include/flags.h"
+#include "../include/writer.h"
+#include <filesystem>
 
 void help();
 
@@ -23,13 +23,13 @@ int main(int argc, char** argv){
 	auto flag { FilterMap.find(FLAG) };
 
 	if (flag == FilterMap.end()) {
-		std::cout << "Flag not found\n";
+		std::cerr << "Flag not found\n";
 		help(); abort();
 	}
 
-
-	// write(FILEPATH, flag);
-
+    
+	// Write to file
+	write(FILEPATH, flag->second);
 
 	return 0;
 }
