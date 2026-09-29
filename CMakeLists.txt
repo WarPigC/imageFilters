@@ -5,14 +5,6 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # params for compiler
-target_compile_options(imgfilter PRIVATE
-    -Wall
-    -Wextra
-    -Wconversion
-    -Wsign-conversion
-    -Wshadow
-    -Wpedantic
-)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 
@@ -27,9 +19,23 @@ set(SOURCES
     ${FILTER_SOURCES}
 )
 
-add_executable(imgfilter ${SOURCES})
+add_executable(ImageFilters ${SOURCES})
 
-target_include_directories(imgfilter PRIVATE
-    ${CMAKE_SOURCE_DIR}/lib          # for 3rd party headers
+target_compile_options(ImageFilters PRIVATE
+    -Wall
+    -Wextra
+    -Wconversion
+    -Wsign-conversion
+    -Wshadow
+    -Wpedantic
+)
+
+# SYSTEM suppresses warnings from /lib
+target_include_directories(ImageFilters SYSTEM PRIVATE 
+    ${CMAKE_SOURCE_DIR}/lib      # for 3rd party headers
+)
+
+
+target_include_directories(ImageFilters PRIVATE
     ${CMAKE_SOURCE_DIR}/include      # for dev defined headers
 )
