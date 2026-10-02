@@ -4,9 +4,13 @@
 #include <string>
 
 enum class Filters {
-	GRAYSCALE
+	GRAYSCALE,
+    INVERT,
+    BRIGHTNESS
 };
 
 const inline std::map<std::string, Filters> FilterMap {
-	{"-g" , Filters::GRAYSCALE}
+    {"-g" , Filters::GRAYSCALE},
+    {"-i", Filters::INVERT},
+    {"-b", Filters::BRIGHTNESS}
 };

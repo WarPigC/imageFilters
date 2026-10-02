@@ -1,6 +1,6 @@
 #include "../../include/filters.h"
 
-void apply (Image& image){
+void applyGrayscale (Image& image){
     for (int y = 0; y < image.getY(); ++y){
         for (int x = 0; x < image.getX(); ++x){
 
@@ -22,7 +22,7 @@ void apply (Image& image){
 int grayscale(Image& image) {
 
     try {
-        apply(image);
+        applyGrayscale(image);
     }
     catch (std::exception& e){
         std::cerr << e.what() << std::endl;

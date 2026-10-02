@@ -12,6 +12,19 @@ int applyFilter( Image& image, Filters filter ) {
          success = grayscale( image );
          break;
      }
+     
+     case Filters::INVERT: {
+         success = invert( image );
+         break;
+     }
+     
+     case Filters::BRIGHTNESS: {
+         //TODO:
+         std::cout << "need to work on it" << std::endl;
+         return 1;
+         // success = brightness( image );
+         break;
+     }
 
      default: {
          std::cerr << "No filter Case found" << std::endl;
