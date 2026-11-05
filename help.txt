@@ -1,0 +1,12 @@
+
+Guide to ImageFilters.
+
+Command format: <file path> <flag> <extra flag relevant parameter>
+
+Available flags:
+    
+    -b: Brightness. Provide a 3rd argument for the change in brightness. 1 to 255 results in increase while -1 to -255 results in a decrease in the brightness intensity        
+
+    -i: Invert. Inverts an image's colors
+
+    -g: Grayscale. Turns a colorful RGB image to grayscale.

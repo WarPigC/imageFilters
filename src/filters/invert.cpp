@@ -1,4 +1,5 @@
 #include "../../include/filters.h"
+#include <iostream>
 
 void applyInvert (Image& image){
     for (int y = 0; y < image.getY(); ++y){

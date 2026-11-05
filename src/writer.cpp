@@ -1,6 +1,9 @@
 #include "../include/writer.h"
 #include "../include/image.h"
 #include "../include/filters.h"
+#include <iostream>
+
+int BRIGHTNESS_DELTA {};
 
 int applyFilter( Image& image, Filters filter ) {
     int success {};
@@ -19,10 +22,7 @@ int applyFilter( Image& image, Filters filter ) {
      }
      
      case Filters::BRIGHTNESS: {
-         //TODO:
-         std::cout << "need to work on it" << std::endl;
-         return 1;
-         // success = brightness( image );
+         success = brightness( image, BRIGHTNESS_DELTA );
          break;
      }
 

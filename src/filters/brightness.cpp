@@ -1,6 +1,12 @@
 #include "../../include/filters.h"
+#include <algorithm>
+#include <stdexcept>
+#include <string>
+#include <iostream>
 
-void applyBrightness(Image& image, int delta) {
+void applyBrightness(Image& image, const int DELTA) {
+    if (DELTA > 255 || DELTA < -255) throw std::invalid_argument("Brightness value" + std::to_string(DELTA) + " out of bounds\n");
+    
     for (int y = 0; y < image.getY(); ++y){
         for (int x = 0; x < image.getX(); ++x){
 
@@ -8,24 +14,24 @@ void applyBrightness(Image& image, int delta) {
             auto &G { image(x, y, 1) };
             auto &B { image(x, y, 2) };
 
-            R = static_cast<unsigned char>(R + delta);
-            G = static_cast<unsigned char>(G + delta);
-            B = static_cast<unsigned char>(B + delta);
+
+            R = static_cast<unsigned char>(std::clamp(R + DELTA, 0, 255));
+            G = static_cast<unsigned char>(std::clamp(G + DELTA, 0, 255));
+            B = static_cast<unsigned char>(std::clamp(B + DELTA, 0, 255));
         }
     }
 }
 
 
-int brightness(Image &image, int delta) {
+int brightness(Image &image, const int DELTA) {
 
     try {
-        applyBrightness(image, delta);
+        applyBrightness(image, DELTA);
     }
-    catch (std::exception& e){
+    catch (const std::exception& e){
         std::cerr << e.what() << std::endl;
         return 1;
     }
-
 
     return 0;
 }

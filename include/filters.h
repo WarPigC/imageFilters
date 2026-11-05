@@ -1,7 +1,6 @@
 #pragma once
 
 #include "image.h"
-#include <iostream>
 
 
 // Grayscale filter
@@ -16,4 +15,4 @@ int invert(Image& image);
 
 // Changes brightness
 // Returns 0 for successful processing
-int brightness(Image& image);
+int brightness(Image& image, int delta);

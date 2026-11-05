@@ -1,6 +1,8 @@
 #include "../include/flags.h"
 #include "../include/writer.h"
 #include <filesystem>
+#include <iostream>
+#include <fstream>
 
 void help();
 
@@ -27,6 +29,10 @@ int main(int argc, char** argv){
 		help(); abort();
 	}
 
+    // brightness delta value check
+    if (flag->second == Filters::BRIGHTNESS) {
+        BRIGHTNESS_DELTA = atoi(argv[3]);
+    }
     
 	// Write to file
 	write(FILEPATH, flag->second);
@@ -36,5 +42,12 @@ int main(int argc, char** argv){
 
 
 void help() {
-	std::cout << "help (more would be written soon here)" << std::endl;
+    std::ifstream file("../help.txt");
+    std::string line;
+    
+    while(std::getline(file, line)){
+        std::cout << line << '\n';
+    }
+    std::cout << std::endl;
+    file.close();
 }
