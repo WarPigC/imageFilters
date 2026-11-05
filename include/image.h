@@ -1,8 +1,8 @@
 #pragma once
 
 #include <string>
-#include "../lib/stb_image.h"
-#include "../lib/stb_image_write.h"
+#include <stb_image.h>
+#include <stb_image_write.h>
 
 // Image handler class.
 class Image {
