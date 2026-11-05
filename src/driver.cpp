@@ -2,7 +2,6 @@
 #include "../include/writer.h"
 #include <filesystem>
 #include <iostream>
-#include <fstream>
 
 
 // handler for CLI arguments
@@ -46,12 +45,12 @@ int main(int argc, char** argv){
 
 
 void help() {
-    std::ifstream file("../help.txt");
-    std::string line;
-    
-    while(std::getline(file, line)){
-        std::cout << line << '\n';
-    }
-    std::cout << std::endl;
-    file.close();
+    std::cout << "\n\n" 
+    << "Guide to ImageFilters." << "\n\n"
+    << "Command format: <file path> <flag> <extra flag relevant parameter>" << "\n\n"
+    << "Available flags:" << "\n"
+    << "        -b: Brightness. Provide a 3rd argument for the change in brightness. 1 to 255 results in increase while -1 to -255 results in a decrease in the brightness intensity" << '\n'
+    << "        -i: Invert. Inverts an image's colors" << '\n'
+    << "        -g: Grayscale. Turns a colorful RGB image to grayscale."
+    << std::endl;
 }
