@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.15)
+cmake_minimum_required(VERSION 3.21)
 project(ImageFilters CXX)
 
 set(CMAKE_CXX_STANDARD 17)
@@ -10,8 +10,6 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 
 # params for compiler
-
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 
 # NOTE: filters/*.cpp are globbed at configure time
 # to add a new filter .cpp, re-run cmake to pick it up before building.
