@@ -27,7 +27,7 @@ public:
 	stbi_uc& operator() (int x, int y, int channel);
 
 	// Writes buffer to the file.
-	int write();
+	void write();
 
     // Gets width of the image
     int getX() const;

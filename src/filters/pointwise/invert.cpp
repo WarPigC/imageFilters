@@ -1,7 +1,6 @@
 #include "../../../include/filters.h"
-#include <iostream>
 
-void applyInvert (Image& image){
+void invert(Image& image) {
     for (int y = 0; y < image.getY(); ++y){
         for (int x = 0; x < image.getX(); ++x){
 
@@ -14,18 +13,4 @@ void applyInvert (Image& image){
             B = static_cast<unsigned char>(255 - B);
         }
     }
-}
-
-
-int invert(Image& image) {
-
-    try {
-        applyInvert(image);
-    }
-    catch (std::exception& e){
-        std::cerr << e.what() << std::endl;
-        return 1;
-    }
-
-    return 0;
 }

@@ -27,7 +27,7 @@ void applyFilter( Image& image, Filters filter ) {
      }
 
      default: {
-         // throw std::
+         throw std::logic_error("Filter not found");
      }
     }
 }
@@ -38,17 +38,14 @@ void write(const std::string FILEPATH, Filters filter) {
     // image instantiated 
     Image image { FILEPATH };
 
-	
     std::cout << "Starting process." << std::endl;
+    
     applyFilter( image, filter );
-
         
-    // std::cerr << "Filter failed to apply" << std::endl;
     std::cout << "Image processed." << std::endl;
 
    image.write();
 
-        // std::cerr << "Image couldn't be written to file" << std::endl;
-    std::cout << "Image written to file" << std::endl;
+   std::cout << "Image written to file" << std::endl;
 
 }

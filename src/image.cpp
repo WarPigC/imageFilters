@@ -8,8 +8,8 @@
 
 
 Image::Image(const std::string filepath)
-	:FILEPATH { filepath },
-	channels { 4 }
+	:channels { 4 },
+	FILEPATH { filepath }
 {
 	int originalChannels;
 	image = stbi_load(FILEPATH.c_str(), &X, &Y, &originalChannels, channels);
@@ -35,12 +35,16 @@ stbi_uc& Image::operator() (int x, int y, int channel){
 	return image[(y * X * channels) + x * channels + channel]; // 1d array of bytes; rows + columns + channel offset
 }
 
-int Image::write(){
+void Image::write(){
+    int success { 0 };
 
 	//TODO: save files to assets regardless from where original file exists.
 	// 		Current implementation saves in-place
+	success = stbi_write_png(FILEPATH.c_str() , X, Y, channels, image, 0);
+
+    if (!success)
+        throw std::logic_error("Image failed to save");
     std::cout << "Saved to " << FILEPATH.c_str() << std::endl;
-	return !stbi_write_png(FILEPATH.c_str() , X, Y, channels, image, 0);
 }
 
 int Image::getX() const {
