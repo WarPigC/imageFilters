@@ -4,15 +4,12 @@
 
 
 // Grayscale filter
-// Returns 0 for successful processing
-int grayscale(Image& image);
+void grayscale(Image& image);
 
 
 // Invert filter
-// Returns 0 for successful processing
-int invert(Image& image);
+void invert(Image& image);
 
 
 // Changes brightness
-// Returns 0 for successful processing
-int brightness(Image& image, int delta);
+void brightness(Image& image, int delta);
