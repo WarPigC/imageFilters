@@ -1,4 +1,4 @@
-#include "../../include/filters.h"
+#include "../../../include/filters.h"
 #include <iostream>
 
 void applyGrayscale (Image& image){

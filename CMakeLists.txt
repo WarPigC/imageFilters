@@ -13,7 +13,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # NOTE: filters/*.cpp are globbed at configure time
 # to add a new filter .cpp, re-run cmake to pick it up before building.
-file(GLOB FILTER_SOURCES ${CMAKE_SOURCE_DIR}/src/filters/*.cpp)
+file(GLOB_RECURSE FILTER_SOURCES ${CMAKE_SOURCE_DIR}/src/filters/*.cpp)
 
 set(SOURCES
     src/driver.cpp
