@@ -3,7 +3,7 @@
 #define STB_IMAGE_IMPLEMENTATION
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 
-#include "../include/image.h"
+#include "image.h"
 #include <iostream>
 
 
@@ -14,10 +14,9 @@ Image::Image(const std::string filepath)
 	int originalChannels;
 	image = stbi_load(FILEPATH.c_str(), &X, &Y, &originalChannels, channels);
 
-	if (!image){
-		std::cerr << "Image not loaded" << std::endl;
-		abort();
-	}
+	if (!image)
+        throw std::runtime_error(stbi_failure_reason());
+	
 	std::cout << "Image loaded" << std::endl;
 	
 	if (originalChannels != channels)
@@ -43,7 +42,7 @@ void Image::write(){
 	success = stbi_write_png(FILEPATH.c_str() , X, Y, channels, image, 0);
 
     if (!success)
-        throw std::logic_error("Image failed to save");
+        throw std::runtime_error(stbi_failure_reason());
     std::cout << "Saved to " << FILEPATH.c_str() << std::endl;
 }
 

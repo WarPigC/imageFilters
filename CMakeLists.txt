@@ -21,8 +21,12 @@ set(SOURCES
 	src/image.cpp
     ${FILTER_SOURCES}
 )
+list(REMOVE_ITEM ${CMAKE_SOURCE_DIR}/src/driver.cpp)
 
-add_executable(ImageFilters ${SOURCES})
+add_library(imagefilters_core STATIC ${LIB_SOURCES})
+add_executable(ImageFilters src/driver.cpp)
+
+target_link_libraries(ImageFilters PRIVATE imagefilters_core)
 
 target_compile_options(ImageFilters PRIVATE
     -Wall
@@ -34,11 +38,11 @@ target_compile_options(ImageFilters PRIVATE
 )
 
 # SYSTEM suppresses warnings from /lib
-target_include_directories(ImageFilters SYSTEM PRIVATE 
+target_include_directories(ImageFilters SYSTEM PUBLIC 
     ${CMAKE_SOURCE_DIR}/lib      # for 3rd party headers
 )
 
 
-target_include_directories(ImageFilters PRIVATE
+target_include_directories(ImageFilters PUBLIC
     ${CMAKE_SOURCE_DIR}/include      # for dev defined headers
 )

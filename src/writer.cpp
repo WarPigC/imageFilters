@@ -1,14 +1,13 @@
-#include "../include/writer.h"
-#include "../include/image.h"
-#include "../include/filters.h"
+#include "writer.h"
+#include "image.h"
+#include "filters.h"
 #include <iostream>
+#include <stdexcept>
 
 int BRIGHTNESS_DELTA {};
 
-//TODO: remove return type int
 void applyFilter( Image& image, Filters filter ) {
 
-    // switch b/w filter files
     switch( filter ){
 
      case Filters::GRAYSCALE: {
@@ -33,7 +32,7 @@ void applyFilter( Image& image, Filters filter ) {
 }
 
 
-void write(const std::string FILEPATH, Filters filter) {
+void processImage(const std::string FILEPATH, Filters filter) {
 
     // image instantiated 
     Image image { FILEPATH };

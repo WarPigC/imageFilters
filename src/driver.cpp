@@ -1,16 +1,11 @@
-#include "../include/flags.h"
-#include "../include/writer.h"
+#include "flags.h"
+#include "writer.h"
 #include <filesystem>
 #include <iostream>
 #include <stdexcept>
 
 
 // handler for CLI arguments
-
-
-void help();
-void formatErrorText(std::exception&);
-
 int main(int argc, char** argv){
     try {
         if (argc < 3){
@@ -36,10 +31,11 @@ int main(int argc, char** argv){
         }
         
         // Write to file
-            write(FILEPATH, flag->second);
+            processImage(FILEPATH, flag->second);
     }
 
-    catch (std::exception& e){
+    //TODO: manage each exception differently
+    catch (const std::exception& e){
         formatErrorText(e);
         help();
         return 1;
@@ -48,11 +44,11 @@ int main(int argc, char** argv){
 	return 0;
 }
 
-void formatErrorText(std::exception& e) {
+void formatErrorText(const std::exception& e) {
     
     // terminal text coloring
-    std::cout << '\n' << "\033[1;31m==> \033[0m";
-    std::cout << e.what() << std::endl;
+    std::cerr << '\n' << "\033[1;31m==> \033[0m";
+    std::cerr << e.what() << std::endl;
 }
 
 void help() {
@@ -65,6 +61,6 @@ Available flags:
      -b: Brightness. Provide a 3rd argument for the change in brightness.
          1 to 255 results in increase while -1 to -255 results in a decrease in the brightness intensity.
      -i: Invert. Inverts an image's colors.
-     -g: Grayscale. Turns a colorful RGB image to grayscale.
-    )" << std::endl;
+     -g: Grayscale. Turns a colorful RGB image to grayscale.)"
+    << std::endl;
 }

@@ -1,4 +1,4 @@
-#include "../../../include/filters.h"
+#include "filters.h"
 
 void invert(Image& image) {
     for (int y = 0; y < image.getY(); ++y){
